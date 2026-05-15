@@ -30,6 +30,6 @@ public class Cinema {
     @Enumerated(EnumType.STRING)
     private FranquiaEnum franquia;
 
-    @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Sala> salas;
 }

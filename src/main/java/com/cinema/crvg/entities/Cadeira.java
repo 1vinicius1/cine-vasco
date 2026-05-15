@@ -18,19 +18,12 @@ public class Cadeira {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCadeira;
 
-    private char fila;
-    private Integer numero;
-    private String tipo;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_sala")
     private Sala sala;
 
+    private char fila;
+    private Integer numero;
+    private String tipo;
     private boolean status;
-
-    @OneToOne
-    @JoinColumn(name = "ingresso_id", nullable = false, unique = true)
-    private Ingresso ingresso;
-
-
 }

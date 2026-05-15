@@ -18,7 +18,8 @@ public class Ingresso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idIngresso;
 
-    @OneToOne(mappedBy = "ingresso")
+    @OneToOne
+    @JoinColumn(name = "id_cadeira", nullable = false, unique = true)
     private Cadeira cadeira;
 
     private Double valorPago;

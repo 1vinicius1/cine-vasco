@@ -34,6 +34,6 @@ public class Sessao {
     @JoinColumn(name = "id_sala")
     private Sala sala;
 
-    @OneToMany(mappedBy = "sessao", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "sessao", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Ingresso> ingressos;
 }

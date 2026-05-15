@@ -27,7 +27,7 @@ public class Sala {
     @JoinColumn(name = "id_cinema")
     private Cinema cinema;
 
-    @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Cadeira> cadeiras;
 
     @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY)
