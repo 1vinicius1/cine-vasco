@@ -9,22 +9,23 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "cidade")
+@Table(name = "filme")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cidade {
+public class Filme {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCidade;
-    private String nome;
+    private Long idFilme;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_estado")
-    private Estado estado;
+    private String titulo;
+    private String sinopse;
+    private String duracao;
+    private Integer faixaEtaria;
+    private String genero;
 
-    @OneToMany(mappedBy = "cidade", fetch = FetchType.LAZY)
-    private List<Cinema> cinemas;
+    @OneToMany(mappedBy = "filme", fetch = FetchType.LAZY)
+    private List<Sessao> sessoes;
 }

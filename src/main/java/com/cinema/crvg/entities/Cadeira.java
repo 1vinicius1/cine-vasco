@@ -6,31 +6,31 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
-@Table(name = "sala")
+@Table(name = "cadeira")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Sala {
+public class Cadeira {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idSala;
+    private Long idCadeira;
 
+    private char fila;
     private Integer numero;
-    private Integer capacidade;
+    private String tipo;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cinema")
-    private Cinema cinema;
+    @JoinColumn(name = "id_sala")
+    private Sala sala;
 
-    @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY)
-    private List<Cadeira> cadeiras;
+    private boolean status;
 
-    @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY)
-    private List<Sessao> sessoes;
+    @OneToOne
+    @JoinColumn(name = "ingresso_id", nullable = false, unique = true)
+    private Ingresso ingresso;
+
 
 }
