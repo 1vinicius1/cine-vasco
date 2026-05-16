@@ -1,5 +1,7 @@
 package com.cinema.crvg.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +14,10 @@ import lombok.Setter;
 public class CidadeDTO {
 
     private Long idCidade;
+
+    @NotBlank
     private String nome;
+
+    @NotNull
     private Long idEstado;
 }
