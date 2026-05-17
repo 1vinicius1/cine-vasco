@@ -2,13 +2,10 @@ package com.cinema.crvg.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "ingresso")
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Ingresso {
@@ -46,5 +43,25 @@ public class Ingresso {
 
     public Sessao getSessao() {
         return sessao;
+    }
+
+    public void setIdIngresso(Long idIngresso) {
+        this.idIngresso = idIngresso;
+    }
+
+    public void setCadeira(Cadeira cadeira) {
+        this.cadeira = cadeira;
+    }
+
+    public void setValorPago(Double valorPago) {
+        this.valorPago = valorPago;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setSessao(Sessao sessao) {
+        this.sessao = sessao;
     }
 }

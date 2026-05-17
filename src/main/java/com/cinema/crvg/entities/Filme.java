@@ -2,15 +2,12 @@ package com.cinema.crvg.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Table(name = "filme")
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Filme {
@@ -54,5 +51,33 @@ public class Filme {
 
     public List<Sessao> getSessoes() {
         return sessoes;
+    }
+
+    public void setIdFilme(Long idFilme) {
+        this.idFilme = idFilme;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public void setDuracao(String duracao) {
+        this.duracao = duracao;
+    }
+
+    public void setFaixaEtaria(Integer faixaEtaria) {
+        this.faixaEtaria = faixaEtaria;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public void setSessoes(List<Sessao> sessoes) {
+        this.sessoes = sessoes;
     }
 }

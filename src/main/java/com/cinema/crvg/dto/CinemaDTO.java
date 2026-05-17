@@ -9,9 +9,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
 public class CinemaDTO {
 
     public CinemaDTO(Cinema cinema) {
@@ -21,6 +18,8 @@ public class CinemaDTO {
         this.idCidade = cinema.getCidade().getIdCidade();
         this.franquia = cinema.getFranquia();
     }
+
+    public CinemaDTO(){}
 
     private Long idCinema;
 
@@ -37,4 +36,44 @@ public class CinemaDTO {
 
     @NotNull
     private FranquiaEnum franquia;
+
+    public Long getIdCinema() {
+        return idCinema;
+    }
+
+    public void setIdCinema(Long idCinema) {
+        this.idCinema = idCinema;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public Long getIdCidade() {
+        return idCidade;
+    }
+
+    public void setIdCidade(Long idCidade) {
+        this.idCidade = idCidade;
+    }
+
+    public FranquiaEnum getFranquia() {
+        return franquia;
+    }
+
+    public void setFranquia(FranquiaEnum franquia) {
+        this.franquia = franquia;
+    }
 }

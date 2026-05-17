@@ -4,13 +4,7 @@ import com.cinema.crvg.entities.Ingresso;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
 public class IngressoDTO {
 
     public IngressoDTO(Ingresso ingresso) {
@@ -20,6 +14,8 @@ public class IngressoDTO {
         this.idSessao = ingresso.getSessao().getIdSessao();
         this.idCadeira = ingresso.getCadeira().getIdCadeira();
     }
+
+    public IngressoDTO(){}
 
     private Long idIngresso;
 
@@ -35,4 +31,44 @@ public class IngressoDTO {
 
     @NotNull
     private Long idCadeira;
+
+    public Long getIdIngresso() {
+        return idIngresso;
+    }
+
+    public void setIdIngresso(Long idIngresso) {
+        this.idIngresso = idIngresso;
+    }
+
+    public Double getValorPago() {
+        return valorPago;
+    }
+
+    public void setValorPago(Double valorPago) {
+        this.valorPago = valorPago;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Long getIdSessao() {
+        return idSessao;
+    }
+
+    public void setIdSessao(Long idSessao) {
+        this.idSessao = idSessao;
+    }
+
+    public Long getIdCadeira() {
+        return idCadeira;
+    }
+
+    public void setIdCadeira(Long idCadeira) {
+        this.idCadeira = idCadeira;
+    }
 }

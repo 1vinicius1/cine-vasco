@@ -2,13 +2,10 @@ package com.cinema.crvg.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "cadeira")
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Cadeira {
@@ -48,5 +45,29 @@ public class Cadeira {
 
     public boolean isStatus() {
         return status;
+    }
+
+    public void setIdCadeira(Long idCadeira) {
+        this.idCadeira = idCadeira;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
+    public void setFila(char fila) {
+        this.fila = fila;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

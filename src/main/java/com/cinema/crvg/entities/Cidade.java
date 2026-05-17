@@ -2,15 +2,12 @@ package com.cinema.crvg.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Table(name = "cidade")
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Cidade {
@@ -31,15 +28,31 @@ public class Cidade {
         return idCidade;
     }
 
+    public void setIdCidade(Long idCidade) {
+        this.idCidade = idCidade;
+    }
+
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Estado getEstado() {
         return estado;
     }
 
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
     public List<Cinema> getCinemas() {
         return cinemas;
+    }
+
+    public void setCinemas(List<Cinema> cinemas) {
+        this.cinemas = cinemas;
     }
 }

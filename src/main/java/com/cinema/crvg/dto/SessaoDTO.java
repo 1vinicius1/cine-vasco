@@ -4,15 +4,8 @@ import com.cinema.crvg.entities.Sessao;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@NoArgsConstructor
 public class SessaoDTO {
 
     public SessaoDTO(Sessao sessao) {
@@ -24,6 +17,8 @@ public class SessaoDTO {
         this.idFilme = sessao.getFilme().getIdFilme();
         this.idSala = sessao.getSala().getIdSala();
     }
+
+    public SessaoDTO(){}
 
     private Long idSessao;
 
@@ -48,4 +43,60 @@ public class SessaoDTO {
 
     @NotNull
     private Long idSala;
+
+    public Long getIdSessao() {
+        return idSessao;
+    }
+
+    public void setIdSessao(Long idSessao) {
+        this.idSessao = idSessao;
+    }
+
+    public LocalDateTime getDataInicioExibicao() {
+        return dataInicioExibicao;
+    }
+
+    public void setDataInicioExibicao(LocalDateTime dataInicioExibicao) {
+        this.dataInicioExibicao = dataInicioExibicao;
+    }
+
+    public LocalDateTime getDataFimExibicao() {
+        return dataFimExibicao;
+    }
+
+    public void setDataFimExibicao(LocalDateTime dataFimExibicao) {
+        this.dataFimExibicao = dataFimExibicao;
+    }
+
+    public LocalDateTime getHoraDataSessao() {
+        return horaDataSessao;
+    }
+
+    public void setHoraDataSessao(LocalDateTime horaDataSessao) {
+        this.horaDataSessao = horaDataSessao;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public Long getIdFilme() {
+        return idFilme;
+    }
+
+    public void setIdFilme(Long idFilme) {
+        this.idFilme = idFilme;
+    }
+
+    public Long getIdSala() {
+        return idSala;
+    }
+
+    public void setIdSala(Long idSala) {
+        this.idSala = idSala;
+    }
 }

@@ -3,15 +3,12 @@ package com.cinema.crvg.entities;
 import com.cinema.crvg.entities.enums.FranquiaEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Table(name = "cinema")
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Cinema {
@@ -54,5 +51,29 @@ public class Cinema {
 
     public List<Sala> getSalas() {
         return salas;
+    }
+
+    public void setIdCinema(Long idCinema) {
+        this.idCinema = idCinema;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+    public void setFranquia(FranquiaEnum franquia) {
+        this.franquia = franquia;
+    }
+
+    public void setSalas(List<Sala> salas) {
+        this.salas = salas;
     }
 }

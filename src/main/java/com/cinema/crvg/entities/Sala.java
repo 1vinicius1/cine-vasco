@@ -2,15 +2,12 @@ package com.cinema.crvg.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Table(name = "sala")
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Sala {
@@ -54,5 +51,29 @@ public class Sala {
 
     public List<Sessao> getSessoes() {
         return sessoes;
+    }
+
+    public void setIdSala(Long idSala) {
+        this.idSala = idSala;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public void setCapacidade(Integer capacidade) {
+        this.capacidade = capacidade;
+    }
+
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
+    }
+
+    public void setCadeiras(List<Cadeira> cadeiras) {
+        this.cadeiras = cadeiras;
+    }
+
+    public void setSessoes(List<Sessao> sessoes) {
+        this.sessoes = sessoes;
     }
 }
