@@ -10,7 +10,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "filme")
-@Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,4 +27,32 @@ public class Filme {
 
     @OneToMany(mappedBy = "filme", fetch = FetchType.LAZY)
     private List<Sessao> sessoes;
+
+    public Long getIdFilme() {
+        return idFilme;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public String getDuracao() {
+        return duracao;
+    }
+
+    public Integer getFaixaEtaria() {
+        return faixaEtaria;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public List<Sessao> getSessoes() {
+        return sessoes;
+    }
 }

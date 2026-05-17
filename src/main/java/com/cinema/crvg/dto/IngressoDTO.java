@@ -1,9 +1,9 @@
 package com.cinema.crvg.dto;
 
+import com.cinema.crvg.entities.Ingresso;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,8 +11,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class IngressoDTO {
+
+    public IngressoDTO(Ingresso ingresso) {
+        this.idIngresso = ingresso.getIdIngresso();
+        this.valorPago = ingresso.getValorPago();
+        this.status = ingresso.getStatus();
+        this.idSessao = ingresso.getSessao().getIdSessao();
+        this.idCadeira = ingresso.getCadeira().getIdCadeira();
+    }
 
     private Long idIngresso;
 

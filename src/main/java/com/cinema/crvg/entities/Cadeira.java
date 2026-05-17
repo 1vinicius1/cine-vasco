@@ -8,7 +8,6 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "cadeira")
-@Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,4 +25,28 @@ public class Cadeira {
     private Integer numero;
     private String tipo;
     private boolean status;
+
+    public Long getIdCadeira() {
+        return idCadeira;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public char getFila() {
+        return fila;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
 }

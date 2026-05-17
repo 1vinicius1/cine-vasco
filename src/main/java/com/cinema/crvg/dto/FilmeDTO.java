@@ -1,10 +1,10 @@
 package com.cinema.crvg.dto;
 
+import com.cinema.crvg.entities.Filme;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,8 +12,16 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class FilmeDTO {
+
+    public FilmeDTO(Filme filme) {
+        this.idFilme = filme.getIdFilme();
+        this.titulo = filme.getTitulo();
+        this.sinopse = filme.getSinopse();
+        this.duracao = filme.getDuracao();
+        this.faixaEtaria = filme.getFaixaEtaria();
+        this.genero = filme.getGenero();
+    }
 
     private Long idFilme;
 

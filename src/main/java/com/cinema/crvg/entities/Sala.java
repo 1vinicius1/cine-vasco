@@ -10,7 +10,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "sala")
-@Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,4 +32,27 @@ public class Sala {
     @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY)
     private List<Sessao> sessoes;
 
+    public Long getIdSala() {
+        return idSala;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public Integer getCapacidade() {
+        return capacidade;
+    }
+
+    public Cinema getCinema() {
+        return cinema;
+    }
+
+    public List<Cadeira> getCadeiras() {
+        return cadeiras;
+    }
+
+    public List<Sessao> getSessoes() {
+        return sessoes;
+    }
 }

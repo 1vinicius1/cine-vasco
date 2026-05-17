@@ -1,8 +1,8 @@
 package com.cinema.crvg.dto;
 
+import com.cinema.crvg.entities.Sala;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,8 +10,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class SalaDTO {
+
+    public SalaDTO(Sala sala) {
+        this.idSala = sala.getIdSala();
+        this.numero = sala.getNumero();
+        this.capacidade = sala.getCapacidade();
+        this.idCinema = sala.getCinema().getIdCinema();
+    }
 
     private Long idSala;
 

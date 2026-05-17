@@ -8,7 +8,6 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "ingresso")
-@Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,4 +27,24 @@ public class Ingresso {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_sessao")
     private Sessao sessao;
+
+    public Long getIdIngresso() {
+        return idIngresso;
+    }
+
+    public Cadeira getCadeira() {
+        return cadeira;
+    }
+
+    public Double getValorPago() {
+        return valorPago;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Sessao getSessao() {
+        return sessao;
+    }
 }

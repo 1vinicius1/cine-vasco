@@ -10,7 +10,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "estado")
-@Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,4 +27,20 @@ public class Estado {
 
     @OneToMany(mappedBy = "estado", fetch = FetchType.LAZY)
     private List<Cidade> cidades;
+
+    public Long getIdEstado() {
+        return idEstado;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public List<Cidade> getCidades() {
+        return cidades;
+    }
 }

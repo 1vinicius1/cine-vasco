@@ -11,7 +11,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "cinema")
-@Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,4 +31,28 @@ public class Cinema {
 
     @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Sala> salas;
+
+    public Long getIdCinema() {
+        return idCinema;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public FranquiaEnum getFranquia() {
+        return franquia;
+    }
+
+    public List<Sala> getSalas() {
+        return salas;
+    }
 }
