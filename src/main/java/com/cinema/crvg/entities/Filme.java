@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,6 +25,11 @@ public class Filme {
 
     @OneToMany(mappedBy = "filme", fetch = FetchType.LAZY)
     private List<Sessao> sessoes;
+
+    @ManyToMany
+    @JoinTable(name = "filme_diretor", joinColumns = @JoinColumn(name = "id_filme"),
+            inverseJoinColumns = @JoinColumn(name = "id_diretor"))
+    private List<Diretor> diretores = new ArrayList<>();
 
     public Long getIdFilme() {
         return idFilme;
@@ -79,5 +85,13 @@ public class Filme {
 
     public void setSessoes(List<Sessao> sessoes) {
         this.sessoes = sessoes;
+    }
+
+    public List<Diretor> getDiretores() {
+        return diretores;
+    }
+
+    public void setDiretores(List<Diretor> diretores) {
+        this.diretores = diretores;
     }
 }

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,6 +29,11 @@ public class Cinema {
 
     @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Sala> salas;
+
+    @ManyToMany
+    @JoinTable(name = "cinema_recurso", joinColumns = @JoinColumn(name = "id_cinema"),
+            inverseJoinColumns = @JoinColumn(name = "id_recurso"))
+    private List<Recurso> recursos = new ArrayList<>();
 
     public Long getIdCinema() {
         return idCinema;
@@ -75,5 +81,13 @@ public class Cinema {
 
     public void setSalas(List<Sala> salas) {
         this.salas = salas;
+    }
+
+    public List<Recurso> getRecursos() {
+        return recursos;
+    }
+
+    public void setRecursos(List<Recurso> recursos) {
+        this.recursos = recursos;
     }
 }

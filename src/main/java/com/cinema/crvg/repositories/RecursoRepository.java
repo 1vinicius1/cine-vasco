@@ -1,9 +1,9 @@
 package com.cinema.crvg.repositories;
 
-import com.cinema.crvg.entities.Estado;
+import com.cinema.crvg.entities.Recurso;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EstadoRepository extends JpaRepository<Estado, Long> {
+public interface RecursoRepository extends JpaRepository<Recurso, Long> {
 }

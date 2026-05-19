@@ -6,6 +6,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FilmeDTO {
 
     public FilmeDTO(Filme filme) {
@@ -15,6 +18,10 @@ public class FilmeDTO {
         this.duracao = filme.getDuracao();
         this.faixaEtaria = filme.getFaixaEtaria();
         this.genero = filme.getGenero();
+
+        if (filme.getDiretores() != null) {
+            filme.getDiretores().forEach(diretor -> this.idDiretores.add(diretor.getIdDiretor()));
+        }
     }
 
     public FilmeDTO(){}
@@ -40,6 +47,8 @@ public class FilmeDTO {
     @NotBlank
     @Size(max = 15)
     private String genero;
+
+    private List<Long> idDiretores = new ArrayList<>();
 
     public Long getIdFilme() {
         return idFilme;
@@ -87,5 +96,13 @@ public class FilmeDTO {
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    public List<Long> getIdDiretores() {
+        return idDiretores;
+    }
+
+    public void setIdDiretores(List<Long> idDiretores) {
+        this.idDiretores = idDiretores;
     }
 }

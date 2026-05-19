@@ -3,34 +3,30 @@ package com.cinema.crvg.entities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "cidade")
+@Table(name = "recurso")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cidade {
+public class Recurso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCidade;
+    private Long idRecurso;
 
     private String nome;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_estado")
-    private Estado estado;
+    @ManyToMany(mappedBy = "recursos")
+    private List<Cinema> cinemas = new ArrayList<>();
 
-    @OneToMany(mappedBy = "cidade", fetch = FetchType.LAZY)
-    private List<Cinema> cinemas;
-
-    public Long getIdCidade() {
-        return idCidade;
+    public Long getIdRecurso() {
+        return idRecurso;
     }
 
-    public void setIdCidade(Long idCidade) {
-        this.idCidade = idCidade;
+    public void setIdRecurso(Long idRecurso) {
+        this.idRecurso = idRecurso;
     }
 
     public String getNome() {
@@ -39,14 +35,6 @@ public class Cidade {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
     }
 
     public List<Cinema> getCinemas() {

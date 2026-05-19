@@ -73,5 +73,4 @@ public class CadeiraService {
                 .orElseThrow(() -> new RuntimeException("Cadeira não encontrada"));
         cadeiraRepository.delete(cadeira);
     }
-
 }

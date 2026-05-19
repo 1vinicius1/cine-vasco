@@ -5,9 +5,9 @@ import com.cinema.crvg.entities.enums.FranquiaEnum;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CinemaDTO {
 
@@ -17,6 +17,10 @@ public class CinemaDTO {
         this.endereco = cinema.getEndereco();
         this.idCidade = cinema.getCidade().getIdCidade();
         this.franquia = cinema.getFranquia();
+
+        if (cinema.getRecursos() != null) {
+            cinema.getRecursos().forEach(recurso -> this.idRecursos.add(recurso.getIdRecurso()));
+        }
     }
 
     public CinemaDTO(){}
@@ -36,6 +40,8 @@ public class CinemaDTO {
 
     @NotNull
     private FranquiaEnum franquia;
+
+    private List<Long> idRecursos = new ArrayList<>();
 
     public Long getIdCinema() {
         return idCinema;
@@ -75,5 +81,13 @@ public class CinemaDTO {
 
     public void setFranquia(FranquiaEnum franquia) {
         this.franquia = franquia;
+    }
+
+    public List<Long> getIdRecursos() {
+        return idRecursos;
+    }
+
+    public void setIdRecursos(List<Long> idRecursos) {
+        this.idRecursos = idRecursos;
     }
 }
