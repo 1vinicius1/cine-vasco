@@ -6,18 +6,19 @@ import com.cinema.crvg.entities.Estado;
 import com.cinema.crvg.repositories.CidadeRepository;
 import com.cinema.crvg.repositories.EstadoRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
 public class CidadeService {
 
-    @Autowired
-    private CidadeRepository cidadeRepository;
+    private final CidadeRepository cidadeRepository;
+    private final EstadoRepository estadoRepository;
 
-    @Autowired
-    private EstadoRepository estadoRepository;
+    public CidadeService(CidadeRepository cidadeRepository, EstadoRepository estadoRepository) {
+        this.cidadeRepository = cidadeRepository;
+        this.estadoRepository = estadoRepository;
+    }
 
     @Transactional
     public CidadeDTO salvar(CidadeDTO dto) {

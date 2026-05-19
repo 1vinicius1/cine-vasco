@@ -1,6 +1,5 @@
 package com.cinema.crvg.services;
 
-import com.cinema.crvg.dto.CinemaDTO;
 import com.cinema.crvg.dto.SalaDTO;
 import com.cinema.crvg.entities.Cinema;
 import com.cinema.crvg.entities.Sala;
@@ -68,5 +67,4 @@ public class SalaService {
                 .orElseThrow(() -> new RuntimeException("Sala não encontrada"));
         salaRepository.delete(sala);
     }
-
 }
