@@ -16,10 +16,10 @@ public class Estado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEstado;
 
-    @Column(name = "sigla", length = 2)
+    @Column(nullable = false, unique = true, length = 2)
     private String sigla;
 
-    @Column(name = "nome", nullable = false, length = 20)
+    @Column(nullable = false, unique = true, length = 50)
     private String nome;
 
     @OneToMany(mappedBy = "estado", fetch = FetchType.LAZY)

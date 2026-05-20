@@ -17,22 +17,27 @@ public class Cinema {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCinema;
+
+    @Column(nullable = false, length = 20)
     private String nome;
+
+    @Column(nullable = false, length = 250)
     private String endereco;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cidade")
+    @JoinColumn(name = "id_cidade", nullable = false)
     private Cidade cidade;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 30)
     private FranquiaEnum franquia;
 
     @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Sala> salas;
 
     @ManyToMany
-    @JoinTable(name = "cinema_recurso", joinColumns = @JoinColumn(name = "id_cinema"),
-            inverseJoinColumns = @JoinColumn(name = "id_recurso"))
+    @JoinTable(name = "cinema_recurso", joinColumns = @JoinColumn(name = "id_cinema", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "id_recurso", nullable = false))
     private List<Recurso> recursos = new ArrayList<>();
 
     public Long getIdCinema() {

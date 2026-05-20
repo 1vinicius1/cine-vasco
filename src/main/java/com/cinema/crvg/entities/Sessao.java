@@ -17,17 +17,24 @@ public class Sessao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSessao;
 
+    @Column(nullable = false)
     private LocalDateTime dataInicioExibicao;
+
+    @Column(nullable = false)
     private LocalDateTime dataFimExibicao;
+
+    @Column(nullable = false)
     private LocalDateTime horaDataSessao;
+
+    @Column(nullable = false)
     private Double preco;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_filme")
+    @JoinColumn(name = "id_filme", nullable = false)
     private Filme filme;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_sala")
+    @JoinColumn(name = "id_sala", nullable = false)
     private Sala sala;
 
     @OneToMany(mappedBy = "sessao", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

@@ -15,12 +15,19 @@ public class Cadeira {
     private Long idCadeira;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_sala")
+    @JoinColumn(name = "id_sala", nullable = false)
     private Sala sala;
 
+    @Column(nullable = false, length = 1)
     private char fila;
+
+    @Column(nullable = false)
     private Integer numero;
+
+    @Column(nullable = false, length = 20)
     private String tipo;
+
+    @Column(nullable = false)
     private boolean status;
 
     public Long getIdCadeira() {

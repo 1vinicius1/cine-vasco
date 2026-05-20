@@ -16,10 +16,11 @@ public class Cidade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCidade;
 
+    @Column(nullable = false, length = 100)
     private String nome;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_estado")
+    @JoinColumn(name = "id_estado", nullable = false)
     private Estado estado;
 
     @OneToMany(mappedBy = "cidade", fetch = FetchType.LAZY)

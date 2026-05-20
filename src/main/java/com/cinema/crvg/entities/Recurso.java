@@ -16,6 +16,7 @@ public class Recurso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRecurso;
 
+    @Column(nullable = false, length = 50)
     private String nome;
 
     @ManyToMany(mappedBy = "recursos")

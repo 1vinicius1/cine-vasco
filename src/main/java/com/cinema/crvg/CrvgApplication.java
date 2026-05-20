@@ -8,6 +8,6 @@ public class CrvgApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CrvgApplication.class, args);
-	}
 
+	}
 }

@@ -16,11 +16,14 @@ public class Sala {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSala;
 
+    @Column(nullable = false)
     private Integer numero;
+
+    @Column(nullable = false)
     private Integer capacidade;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cinema")
+    @JoinColumn(name = "id_cinema", nullable = false)
     private Cinema cinema;
 
     @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)

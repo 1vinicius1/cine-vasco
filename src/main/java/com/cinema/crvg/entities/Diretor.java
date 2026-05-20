@@ -16,6 +16,7 @@ public class Diretor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDiretor;
 
+    @Column(nullable = false, length = 100)
     private String nome;
 
     @ManyToMany(mappedBy = "diretores")

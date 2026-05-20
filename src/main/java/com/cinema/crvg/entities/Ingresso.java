@@ -18,11 +18,14 @@ public class Ingresso {
     @JoinColumn(name = "id_cadeira", nullable = false, unique = true)
     private Cadeira cadeira;
 
+    @Column(nullable = false)
     private Double valorPago;
+
+    @Column(nullable = false, length = 20)
     private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_sessao")
+    @JoinColumn(name = "id_sessao", nullable = false)
     private Sessao sessao;
 
     public Long getIdIngresso() {

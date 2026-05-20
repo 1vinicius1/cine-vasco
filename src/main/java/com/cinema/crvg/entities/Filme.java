@@ -17,18 +17,27 @@ public class Filme {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFilme;
 
+    @Column(nullable = false, length = 50)
     private String titulo;
+
+    @Column(nullable = false, length = 500)
     private String sinopse;
+
+    @Column(nullable = false, length = 15)
     private String duracao;
+
+    @Column(nullable = false)
     private Integer faixaEtaria;
+
+    @Column(nullable = false, length = 15)
     private String genero;
 
     @OneToMany(mappedBy = "filme", fetch = FetchType.LAZY)
     private List<Sessao> sessoes;
 
     @ManyToMany
-    @JoinTable(name = "filme_diretor", joinColumns = @JoinColumn(name = "id_filme"),
-            inverseJoinColumns = @JoinColumn(name = "id_diretor"))
+    @JoinTable(name = "filme_diretor", joinColumns = @JoinColumn(name = "id_filme", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "id_diretor", nullable = false))
     private List<Diretor> diretores = new ArrayList<>();
 
     public Long getIdFilme() {
