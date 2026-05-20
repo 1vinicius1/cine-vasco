@@ -43,7 +43,7 @@ public class SessaoService {
         return new SessaoDTO(sessaoSalva);
     }
 
-    public List<SessaoDTO> listarTodos() {
+    public List<SessaoDTO> listarTodas() {
         return sessaoRepository.findAll()
                 .stream()
                 .map(SessaoDTO::new)

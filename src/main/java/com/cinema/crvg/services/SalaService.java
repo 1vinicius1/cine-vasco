@@ -33,7 +33,7 @@ public class SalaService {
         return new SalaDTO(salaSalva);
     }
 
-    public List<SalaDTO> listarTodos() {
+    public List<SalaDTO> listarTodas() {
         return salaRepository.findAll()
                 .stream()
                 .map(SalaDTO::new)

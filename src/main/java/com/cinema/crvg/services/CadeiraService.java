@@ -37,7 +37,7 @@ public class CadeiraService {
         return new CadeiraDTO(cadeiraSalva);
     }
 
-    public List<CadeiraDTO> listarTodos() {
+    public List<CadeiraDTO> listarTodas() {
         return cadeiraRepository.findAll()
                 .stream()
                 .map(CadeiraDTO::new)

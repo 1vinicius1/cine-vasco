@@ -32,7 +32,7 @@ public class CidadeService {
         return new CidadeDTO(cidadeSalva);
     }
 
-    public List<CidadeDTO> listarTodos() {
+    public List<CidadeDTO> listarTodas() {
         return cidadeRepository.findAll()
                 .stream()
                 .map(CidadeDTO::new)
