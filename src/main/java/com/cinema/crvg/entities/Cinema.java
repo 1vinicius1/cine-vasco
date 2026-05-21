@@ -18,7 +18,7 @@ public class Cinema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCinema;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 50)
     private String nome;
 
     @Column(nullable = false, length = 250)

@@ -7,8 +7,8 @@ import jakarta.validation.constraints.Size;
 public class DiretorDTO {
 
     public DiretorDTO(Diretor diretor) {
-        this.idDiretor = idDiretor;
-        this.nome = nome;
+        this.idDiretor = diretor.getIdDiretor();
+        this.nome = diretor.getNome();
     }
 
     public DiretorDTO(){}

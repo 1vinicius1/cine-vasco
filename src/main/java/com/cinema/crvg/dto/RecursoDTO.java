@@ -7,8 +7,8 @@ import jakarta.validation.constraints.Size;
 public class RecursoDTO {
 
     public RecursoDTO(Recurso recurso) {
-        this.idRecurso = idRecurso;
-        this.nome = nome;
+        this.idRecurso = recurso.getIdRecurso();
+        this.nome = recurso.getNome();
     }
 
     public RecursoDTO(){}
