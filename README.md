@@ -5,3 +5,5 @@ Para oferecer uma boa experiência, os cinemas contam com diversos recursos, pos
 A programação é organizada por meio de sessões, que exibem filmes específicos (dirigidos por um ou mais diretores), permitindo que os clientes comprem seus ingressos vinculados a uma cadeira e a uma sessão escolhida. 
 
 <img width="1761" height="2430" alt="Cinema" src="https://github.com/user-attachments/assets/e3b22e2b-cecd-4238-a6cb-d639fd8687da" />
+
+A documentação dos endpoints da API foi gerada utilizando o Swagger/OpenAPI e pode ser acessada localmente através da URL: http://localhost:8080/swagger-ui/index.html com a aplicação em execução.
