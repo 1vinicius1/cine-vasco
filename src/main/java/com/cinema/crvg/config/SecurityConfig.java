@@ -13,7 +13,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        // Libera o acesso ao H2-Console e ao Swagger sem exigir login
+        // Libera o acesso ao H2-Console e ao Swagger sem exigir login.
         http.authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
