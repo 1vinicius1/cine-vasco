@@ -24,7 +24,32 @@ Tecnologias e Dependências Utilizadas:
 - Lombok (Produtividade e eliminação de código boilerplate através de anotações como @Getter e @Setter).
 
 Para executar a aplicação, rode o projeto através da classe principal CrvgApplication.java.
-Após isso, a aplicação estará disponível em: "http://localhost:8080".
+Após isso, a aplicação estará disponível em: http://localhost:8080.
 A documentação dos endpoints da API foi gerada utilizando o Swagger/OpenAPI e pode ser acessada localmente através da URL: http://localhost:8080/swagger-ui/index.html com a aplicação em execução.
 O link do Banco de Dados (H2 Console): http://localhost:8080/h2-console (JDBC URL: jdbc:h2:mem:cinemadb)
 username: sa (senha vazia)
+
+Exemplo de execução:
+
+Payload de Requisição (Request Body):
+
+{
+    "dataInicioExibicao": "2026-06-20T14:30:00",
+    "dataFimExibicao": "2026-06-20T17:00:00",
+    "horaDataSessao": "2026-06-20T14:30:00",
+    "preco": 32.50,
+    "idFilme": 1,
+    "idSala": 1
+}
+
+Payload de Resposta (Response Body):
+
+{
+    "idSessao": 5,
+    "dataInicioExibicao": "2026-06-20T14:30:00",
+    "dataFimExibicao": "2026-06-20T17:00:00",
+    "horaDataSessao": "2026-06-20T14:30:00",
+    "preco": 32.50,
+    "idFilme": 1,
+    "idSala": 1
+}
