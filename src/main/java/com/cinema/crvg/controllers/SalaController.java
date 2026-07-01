@@ -2,6 +2,7 @@ package com.cinema.crvg.controllers;
 
 import com.cinema.crvg.dto.SalaDTO;
 import com.cinema.crvg.services.SalaService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.URI;
@@ -30,14 +31,14 @@ public class SalaController {
     }
 
     @PostMapping
-    public ResponseEntity<SalaDTO> criar(@RequestBody SalaDTO salaDTO) {
+    public ResponseEntity<SalaDTO> criar(@RequestBody @Valid SalaDTO salaDTO) {
         SalaDTO salaCriada = salaService.salvar(salaDTO);
         URI location = URI.create("/salas/" + salaCriada.getIdSala());
         return ResponseEntity.created(location).body(salaCriada);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<SalaDTO> atualizar(@PathVariable Long id, @RequestBody SalaDTO salaDTO) {
+    public ResponseEntity<SalaDTO> atualizar(@PathVariable Long id, @RequestBody @Valid SalaDTO salaDTO) {
         SalaDTO salaAtualizada = salaService.atualizar(id, salaDTO);
         return ResponseEntity.ok(salaAtualizada);
     }

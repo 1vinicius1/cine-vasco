@@ -2,6 +2,7 @@ package com.cinema.crvg.controllers;
 
 import com.cinema.crvg.dto.RecursoDTO;
 import com.cinema.crvg.services.RecursoService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.URI;
@@ -30,14 +31,14 @@ public class RecursoController {
     }
 
     @PostMapping
-    public ResponseEntity<RecursoDTO> criar(@RequestBody RecursoDTO recursoDTO) {
+    public ResponseEntity<RecursoDTO> criar(@RequestBody @Valid RecursoDTO recursoDTO) {
         RecursoDTO recursoCriado = recursoService.salvar(recursoDTO);
         URI location = URI.create("/recursos/" + recursoCriado.getIdRecurso());
         return ResponseEntity.created(location).body(recursoCriado);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<RecursoDTO> atualizar(@PathVariable Long id, @RequestBody RecursoDTO recursoDTO) {
+    public ResponseEntity<RecursoDTO> atualizar(@PathVariable Long id, @RequestBody @Valid RecursoDTO recursoDTO) {
         RecursoDTO recursoAtualizado = recursoService.atualizar(id, recursoDTO);
         return ResponseEntity.ok(recursoAtualizado);
     }

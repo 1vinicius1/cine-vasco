@@ -2,6 +2,7 @@ package com.cinema.crvg.controllers;
 
 import com.cinema.crvg.dto.CadeiraDTO;
 import com.cinema.crvg.services.CadeiraService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.URI;
@@ -30,14 +31,14 @@ public class CadeiraController {
     }
 
     @PostMapping
-    public ResponseEntity<CadeiraDTO> criar(@RequestBody CadeiraDTO cadeiraDTO) {
+    public ResponseEntity<CadeiraDTO> criar(@RequestBody @Valid CadeiraDTO cadeiraDTO) {
         CadeiraDTO cadeiraCriada = cadeiraService.salvar(cadeiraDTO);
         URI location = URI.create("/cadeiras/" + cadeiraCriada.getIdCadeira());
         return ResponseEntity.created(location).body(cadeiraCriada);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CadeiraDTO> atualizar(@PathVariable Long id, @RequestBody CadeiraDTO cadeiraDTO) {
+    public ResponseEntity<CadeiraDTO> atualizar(@PathVariable Long id, @RequestBody @Valid CadeiraDTO cadeiraDTO) {
         CadeiraDTO cadeiraAtualizada = cadeiraService.atualizar(id, cadeiraDTO);
         return ResponseEntity.ok(cadeiraAtualizada);
     }

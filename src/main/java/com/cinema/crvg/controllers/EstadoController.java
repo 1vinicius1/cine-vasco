@@ -2,6 +2,7 @@ package com.cinema.crvg.controllers;
 
 import com.cinema.crvg.dto.EstadoDTO;
 import com.cinema.crvg.services.EstadoService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.URI;
@@ -30,14 +31,14 @@ public class EstadoController {
     }
 
     @PostMapping
-    public ResponseEntity<EstadoDTO> criar(@RequestBody EstadoDTO estadoDTO) {
+    public ResponseEntity<EstadoDTO> criar(@RequestBody @Valid EstadoDTO estadoDTO) {
         EstadoDTO estadoCriado = estadoService.salvar(estadoDTO);
         URI location = URI.create("/estados/" + estadoCriado.getIdEstado());
         return ResponseEntity.created(location).body(estadoCriado);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EstadoDTO> atualizar(@PathVariable Long id, @RequestBody EstadoDTO estadoDTO) {
+    public ResponseEntity<EstadoDTO> atualizar(@PathVariable Long id, @RequestBody @Valid EstadoDTO estadoDTO) {
         EstadoDTO estadoAtualizado = estadoService.atualizar(id, estadoDTO);
         return ResponseEntity.ok(estadoAtualizado);
     }

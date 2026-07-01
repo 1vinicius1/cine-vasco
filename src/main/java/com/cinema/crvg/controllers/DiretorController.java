@@ -2,6 +2,7 @@ package com.cinema.crvg.controllers;
 
 import com.cinema.crvg.dto.DiretorDTO;
 import com.cinema.crvg.services.DiretorService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.URI;
@@ -30,14 +31,14 @@ public class DiretorController {
     }
 
     @PostMapping
-    public ResponseEntity<DiretorDTO> criar(@RequestBody DiretorDTO diretorDTO) {
+    public ResponseEntity<DiretorDTO> criar(@RequestBody @Valid DiretorDTO diretorDTO) {
         DiretorDTO diretorCriado = diretorService.salvar(diretorDTO);
         URI location = URI.create("/diretores/" + diretorCriado.getIdDiretor());
         return ResponseEntity.created(location).body(diretorCriado);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<DiretorDTO> atualizar(@PathVariable Long id, @RequestBody DiretorDTO diretorDTO) {
+    public ResponseEntity<DiretorDTO> atualizar(@PathVariable Long id, @RequestBody @Valid DiretorDTO diretorDTO) {
         DiretorDTO diretorAtualizado = diretorService.atualizar(id, diretorDTO);
         return ResponseEntity.ok(diretorAtualizado);
     }
