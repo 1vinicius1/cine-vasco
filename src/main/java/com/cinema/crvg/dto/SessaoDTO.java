@@ -1,6 +1,7 @@
 package com.cinema.crvg.dto;
 
 import com.cinema.crvg.entities.Sessao;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -36,6 +37,7 @@ public class SessaoDTO {
 
     @NotNull
     @PositiveOrZero
+    @DecimalMin("0.0")
     private Double preco;
 
     @NotNull
