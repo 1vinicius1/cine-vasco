@@ -15,8 +15,8 @@ Requisitos para rodar o projeto:
 
 Tecnologias e Dependências Utilizadas:
 
-- Maven 3.x (Gerenciador de dependências);
-- Spring Boot 3.x (Framework);
+- Maven (Gerenciador de dependências);
+- Spring Boot 4.0.6 (Framework);
 - Spring Data JPA & Banco de Dados H2 (Persistência de dados em memória, dispensando instalação de bancos locais);
 - Validation (Bean Validation / Jakarta) (Mapeamento de regras e consistência de dados dos DTOs via @Valid);
 - Spring Security (Camada nativa de Autenticação e Autorização da API);
